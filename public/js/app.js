@@ -1,21 +1,39 @@
 /** @jsx React.DOM */
 var React = require('react');
-window.React = React;
+var ReactMount  = require('react/lib/ReactMount');
+ReactMount.allowFullPageRender = true;
 var Router = require('react-router-component');
 var Locations = Router.Locations;
 var Location = Router.Location;
+var Pages = Router.Pages;
+var Page = Router.Page;
 
-var MainPage = require('./components/MainPage')();
+module.exports = function (client) {
 
-var App = React.createClass({
+  var MainPage = require('./components/MainPage')(React, client);
 
-  render: function() {
-    return (
-      <Locations>
-        <Location path="/" handler={MainPage} />
-      </Locations>
-    )
+  var App = React.createClass({
+    render: function() {
+      return (
+        <html>
+          <head>
+            <script src="/js/main.js"></script>
+          </head>
+          <body>
+            <Pages className="App" path={this.props.path}>
+              <Page path="/" handler={MainPage} />
+            </Pages>
+          </body>
+        </html>
+      )
+    }
+  });
+
+  if (process.browser) {
+    window.onload = function() {
+      React.renderComponent(App(), document);
+    }
   }
-});
 
-React.renderComponent(App(), document.getElementsByTagName('main')[0]);
+  return App;
+};
