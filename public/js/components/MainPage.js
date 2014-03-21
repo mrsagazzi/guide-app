@@ -2,7 +2,7 @@
 module.exports = function (React, client) {
   return React.createClass({
     render: function() {
-        return <div>Hello</div>;
+      return <div>Hello</div>;
     }
   });
 };

@@ -3,8 +3,6 @@ var React = require('react');
 var ReactMount  = require('react/lib/ReactMount');
 ReactMount.allowFullPageRender = true;
 var Router = require('react-router-component');
-var Locations = Router.Locations;
-var Location = Router.Location;
 var Pages = Router.Pages;
 var Page = Router.Page;
 
