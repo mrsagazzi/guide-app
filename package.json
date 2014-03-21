@@ -1,0 +1,25 @@
+{
+  "name": "guide-app",
+  "version": "0.0.0",
+  "description": "A generic app for shop guides",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:contentful/guide-app.git"
+  },
+  "keywords": [
+    "app",
+    "example",
+    "guide",
+    "react",
+    "contentful"
+  ],
+  "author": "Tiago Rodrigues <tmcrodrigues@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/contentful/guide-app/issues"
+  }
+}
