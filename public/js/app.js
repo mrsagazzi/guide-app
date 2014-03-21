@@ -9,7 +9,7 @@ var Page = Router.Page;
 module.exports = function (client, config) {
   config = 'window.contentfulConfig='+JSON.stringify(config);
 
-  var MainPage = require('./components/MainPage')(React, client);
+  var ShopListPage = require('./components/ShopListPage')(React, client);
 
   var App = React.createClass({
     render: function() {
@@ -22,7 +22,7 @@ module.exports = function (client, config) {
           </head>
           <body>
             <Pages className="App" path={this.props.path}>
-              <Page path="/" handler={MainPage} />
+              <Page path="/" handler={ShopListPage} />
             </Pages>
           </body>
         </html>
