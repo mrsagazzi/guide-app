@@ -4,6 +4,8 @@ var path = require('path');
 var url = require('url');
 var browserify = require('browserify-middleware');
 
+var cheerio = require('cheerio');
+
 var ReactAsync  = require('react-async');
 require('node-jsx').install();
 
@@ -37,7 +39,18 @@ app.use(function(req, res, next) {
     if (err) {
       return next(err);
     }
-    res.send(markup);
+    var $ = cheerio.load(markup);
+    var scripts = $('script');
+    var stateScript = scripts.eq(scripts.length-1);
+    var state = stateScript.text().replace('window.__reactAsyncStatePacket=', '');
+    var formattedState = JSON.stringify(JSON.parse(state), null, '  ');
+    // Uncomment this line to inject a formatted state. Helps debug weird data
+    //stateScript.html('window.__reactAsyncStatePacket='+formattedState);
+    // Uncomment the next two lines to print a formatted version of the state
+    //$('body').append('<pre id="stateDebug" />');
+    //$('#stateDebug').html(formattedState);
+
+    res.send($.html());
   });
 });
 

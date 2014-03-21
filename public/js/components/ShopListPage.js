@@ -4,27 +4,22 @@ module.exports = function (React, client) {
   var ShopListItem = require('./ShopListItem')(React, client);
 
   return React.createClass({
-    getInitialState: function () {
-      return {
-        entries: [],
-        total: 0
-      };
-    },
+    mixins: [ReactAsync.Mixin],
 
-    update: function () {
+    getInitialStateAsync: function (cb) {
       client.entries().then(function (data) {
         console.log(data);
-        this.setState({
+        cb(null, {
           entries: data,
           total: data.total
         });
-      }.bind(this));
+      });
     },
 
     render: function() {
-      var shops = this.state.entries.map(function (entry) {
+      var shops = this.state ? this.state.entries.map(function (entry) {
         return <ShopListItem key={entry.sys.id} entry={entry} />;
-      });
+      }) : [];
 
       return (
         <div className="ShopListPage">
