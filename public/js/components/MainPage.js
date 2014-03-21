@@ -8,7 +8,7 @@ module.exports = function (React, client) {
     getInitialStateAsync: function (cb) {
       client.space().then(function (data) {
         console.log(data);
-        cb(null, {name: 'lol'});
+        cb(null, {name: data.name});
       });
     },
 
