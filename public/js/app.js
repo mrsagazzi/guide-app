@@ -6,16 +6,19 @@ var Router = require('react-router-component');
 var Pages = Router.Pages;
 var Page = Router.Page;
 
-module.exports = function (client) {
+module.exports = function (client, config) {
+  config = 'window.contentfulConfig='+JSON.stringify(config);
 
   var MainPage = require('./components/MainPage')(React, client);
 
   var App = React.createClass({
     render: function() {
+      console.log(process.browser, this.props);
       return (
         <html>
           <head>
-            <script src="/js/main.js"></script>
+            <script dangerouslySetInnerHTML={{__html: config}} />
+            <script src="/js/main.js" />
           </head>
           <body>
             <Pages className="App" path={this.props.path}>
@@ -29,7 +32,7 @@ module.exports = function (client) {
 
   if (process.browser) {
     window.onload = function() {
-      React.renderComponent(App(), document);
+      React.renderComponent(App({path: window.location.pathname + window.location.search}), document);
     }
   }
 

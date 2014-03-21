@@ -6,7 +6,16 @@ var browserify = require('browserify-middleware');
 
 var ReactAsync  = require('react-async');
 require('node-jsx').install();
-var App = require('./public/js/app');
+
+var contentful = require('contentful');
+var config = require('./config.json');
+
+var client = contentful.createClient({
+  accessToken: config.accessToken,
+  space: config.space 
+});
+
+var App = require('./public/js/app')(client, config);
 
 browserify.settings({
   transform: [
@@ -15,7 +24,6 @@ browserify.settings({
 });
 
 app.set('views', path.join(__dirname, 'public'));
-//app.set('view engine', 'jade');
 app.use(express.logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded());
@@ -41,11 +49,5 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/js/main.js', browserify('./public/js/main.js'));
-
-/*
-app.get('/', function(req, res){
-  res.render('index');
-});
-*/
 
 app.listen(3010);

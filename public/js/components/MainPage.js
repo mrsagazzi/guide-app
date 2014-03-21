@@ -1,8 +1,19 @@
 /** @jsx React.DOM */
+var ReactAsync  = require('react-async');
 module.exports = function (React, client) {
   return React.createClass({
+
+    mixins: [ReactAsync.Mixin],
+
+    getInitialStateAsync: function (cb) {
+      client.space().then(function (data) {
+        console.log(data);
+        cb(null, {name: 'lol'});
+      });
+    },
+
     render: function() {
-      return <div>Hello</div>;
+      return <div>Hello {this.state.name}</div>;
     }
   });
 };

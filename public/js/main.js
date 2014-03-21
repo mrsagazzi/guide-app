@@ -1,13 +1,13 @@
 var React = require('react');
-if(process.browser) window.React = React;
+var config;
+if(process.browser){
+  window.React = React;
+  config = window.contentfulConfig;
+}
 var Router = require('react-router-component');
 
 var contentful = require('contentful');
-var config = require('./config.json');
 
-var client = contentful.createClient({
-  accessToken: config.accessToken,
-  space: config.space 
-});
+var client = contentful.createClient(config);
 
-var App = require('./App')(client);
+var App = require('./App')(client, config);
