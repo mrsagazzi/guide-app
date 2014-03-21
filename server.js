@@ -17,8 +17,6 @@ var client = contentful.createClient({
   space: config.space 
 });
 
-var App = require('./public/js/app')(client, config);
-
 browserify.settings({
   transform: [
     'reactify'
@@ -32,6 +30,11 @@ app.use(express.urlencoded());
 app.use(express.methodOverride());
 app.use(app.router);
 
+// Initialize the top level React component on the server
+var App = require('./public/js/app')(client, config);
+
+// Middleware which enables React.js server rendering,
+// with some additional debugging features for data
 app.use(function(req, res, next) {
   var path = url.parse(req.url).pathname;
   var app = App({path: path});

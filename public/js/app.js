@@ -8,9 +8,11 @@ var Page = Router.Page;
 var App;
 
 module.exports = function (client, config) {
+  // Require and initialize page components
   var ShopListPage = require('./components/ShopListPage')(React, client);
   var ShopDetailPage = require('./components/ShopDetailPage')(React, client);
 
+  // Prepares the config for the client side
   config = 'window.contentfulConfig='+JSON.stringify(config);
 
   App = React.createClass({
