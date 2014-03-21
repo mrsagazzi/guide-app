@@ -27,7 +27,7 @@ module.exports = function (React, client) {
       });
 
       return (
-        <div>
+        <div className="ShopListPage">
           <p>Shop list</p>
           {shops}
           <p>{this.state.total} shops</p>
