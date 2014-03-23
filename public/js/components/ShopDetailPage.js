@@ -1,6 +1,6 @@
 /** @jsx React.DOM */
 var ReactAsync  = require('react-async');
-module.exports = function (React, client) {
+module.exports = function (React, Layout, client) {
 
   return React.createClass({
     mixins: [ReactAsync.Mixin],
@@ -14,10 +14,10 @@ module.exports = function (React, client) {
 
     render: function() {
       return (
-        <div className="ShopDetailPage">
+        <Layout>
           <p>{this.state.name}</p>
           <p>{this.state.description}</p>
-        </div>
+        </Layout>
       );
     }
   });

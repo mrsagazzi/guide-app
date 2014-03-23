@@ -1,6 +1,6 @@
 /** @jsx React.DOM */
 var ReactAsync  = require('react-async');
-module.exports = function (React, client) {
+module.exports = function (React, Layout, client) {
   var ShopListItem = require('./ShopListItem')(React, client);
 
   return React.createClass({
@@ -22,12 +22,12 @@ module.exports = function (React, client) {
       }) : [];
 
       return (
-        <div className="ShopListPage">
+        <Layout>
           <p>Shop list</p>
           {shops}
           <p>{this.state.total} shops</p>
           <button onClick={this.update}>Update</button>
-        </div>
+        </Layout>
       );
     }
   });

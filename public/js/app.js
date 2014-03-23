@@ -9,8 +9,9 @@ var App;
 
 module.exports = function (client, config) {
   // Require and initialize page components
-  var ShopListPage = require('./components/ShopListPage')(React, client);
-  var ShopDetailPage = require('./components/ShopDetailPage')(React, client);
+  var Layout = require('./Layout')(React);
+  var ShopListPage = require('./components/ShopListPage')(React, Layout, client);
+  var ShopDetailPage = require('./components/ShopDetailPage')(React, Layout, client);
 
   // Prepares the config for the client side
   config = 'window.contentfulConfig='+JSON.stringify(config);
