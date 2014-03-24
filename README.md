@@ -3,9 +3,9 @@ guide-app
 
 A generic guide app for shop guides
 
-A [React.js](http://facebook.github.io/react/) based app, using contentful as a data storage. Renders from
+A [React.js](http://facebook.github.io/react/) based app, using [Contentful](https://www.contentful.com/) as a data storage. Renders from
 the server on initial load and it renders on the client on subsequent
-loads.
+loads, making use of [react-router-component](andreypopp.viewdocs.io/react-router-component).
 
 Vaguely based on [react quickstart](https://github.com/andreypopp/react-quickstart).
 
@@ -14,6 +14,9 @@ That means it will still (mostly) work if your JS is deactivated.
 Uses browserify to serve client side JS.
 
 See the [Contentful Developer Documentation](https://www.contentful.com/developers) to learn more about the API.
+
+When time allows, this app will also have an offline mode and
+demonstrate use of the Contentful sync API.
 
 # Usage
 
