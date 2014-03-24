@@ -41,6 +41,8 @@ or
 nodemon server.js
 ```
 
+and visit [http://localhost:3010](http://localhost:3010)
+
 # Some (less obvious) things
 - node-jsx lets node know about files which contain JSX on the server
   side
