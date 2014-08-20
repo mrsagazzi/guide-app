@@ -53,7 +53,7 @@ and visit [http://localhost:3010](http://localhost:3010)
 
 This app uses only one content type. It looks like this:
 
-```
+```json
 {
   "sys": {
     ...
