@@ -26,8 +26,7 @@ Install with
 npm install
 ```
 
-Afterwards, copy config.json.default to config.json and set it up with
-your API key and Space ID.
+Afterwards, copy `config.json.default` to `config.json`.
 
 Run with
 
@@ -42,6 +41,10 @@ nodemon server.js
 ```
 
 and visit [http://localhost:3010](http://localhost:3010)
+
+# Using it with your own data
+
+The credentials provided above in config.json are read only and they allow you to access data from a demo Space. If you want to create your own data, you should get a Contentful account and then get a Content Delivery API key from the API section.
 
 # Some (less obvious) things
 - node-jsx lets node know about files which contain JSX on the server
