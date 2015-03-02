@@ -5,6 +5,8 @@ A generic guide app for shop guides
 
 **This is a project created on an internal hackathon as an example of how to use Contentful and React.js. It's not officially supported, so if you find issues or have questions you can let us know via issues but don't expect a quick and prompt response.**
 
+**A newer version of this app is available [here](https://github.com/contentful/guide-app-sw). The new version makes use of newer React.js features which make it much easier to understand, so we'd recommend you look at that instead**.
+
 A [React.js](http://facebook.github.io/react/) based app, using [Contentful](https://www.contentful.com/) as a data storage. Renders from
 the server on initial load and it renders on the client on subsequent
 loads, making use of [react-router-component](andreypopp.viewdocs.io/react-router-component).
